@@ -1,0 +1,8 @@
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\bin\Debug\netcoreapp2.0\SIS.IRunes.deps.json
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\bin\Debug\netcoreapp2.0\SIS.IRunes.runtimeconfig.json
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\bin\Debug\netcoreapp2.0\SIS.IRunes.runtimeconfig.dev.json
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\bin\Debug\netcoreapp2.0\SIS.IRunes.dll
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\obj\Debug\netcoreapp2.0\SIS.IRunes.csprojAssemblyReference.cache
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\obj\Debug\netcoreapp2.0\SIS.IRunes.csproj.CoreCompileInputs.cache
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\obj\Debug\netcoreapp2.0\SIS.IRunes.AssemblyInfoInputs.cache
+C:\CSharpWeb\CSharpWebBasic\SIS\SIS.IRunes\obj\Debug\netcoreapp2.0\SIS.IRunes.AssemblyInfo.cs
