@@ -1,0 +1,50 @@
+﻿hr {
+    background-color: #28A745;
+    border-width: 2px;
+}
+
+.navbar-default {
+    background-color: #28A745;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.jumbotron {
+    background-color: #28A745;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover{
+    color: black;
+}
+
+.btn-primary {
+    background-color: #28A745;
+    border-color: #28A745;
+}
+
+.btn-primary:hover {
+    background-color: forestgreen;
+    border-color: forestgreen;
+}
+
+#InsideJumbotronLine {
+    background-color: white;
+}
+
+#WordsInJumbotron{
+    color: white;
+}
+
+#LinksInsideJumbotron{
+    color: orange;
+}
+
+#UsernameLoggedIn{
+    color: orange;
+}

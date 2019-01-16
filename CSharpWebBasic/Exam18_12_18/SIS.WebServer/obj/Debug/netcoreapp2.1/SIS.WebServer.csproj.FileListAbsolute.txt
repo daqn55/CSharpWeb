@@ -1,0 +1,12 @@
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\bin\Debug\netcoreapp2.1\SIS.WebServer.deps.json
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\bin\Debug\netcoreapp2.1\SIS.WebServer.dll
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\bin\Debug\netcoreapp2.1\SIS.WebServer.pdb
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\bin\Debug\netcoreapp2.1\SIS.HTTP.dll
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\bin\Debug\netcoreapp2.1\SIS.HTTP.pdb
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\obj\Debug\netcoreapp2.1\SIS.WebServer.csprojAssemblyReference.cache
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\obj\Debug\netcoreapp2.1\SIS.WebServer.csproj.CoreCompileInputs.cache
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\obj\Debug\netcoreapp2.1\SIS.WebServer.AssemblyInfoInputs.cache
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\obj\Debug\netcoreapp2.1\SIS.WebServer.AssemblyInfo.cs
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\obj\Debug\netcoreapp2.1\SIS.WebServer.csproj.CopyComplete
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\obj\Debug\netcoreapp2.1\SIS.WebServer.dll
+C:\CSharpWeb\CSharpWebBasic\Exam18_12_18\SIS.WebServer\obj\Debug\netcoreapp2.1\SIS.WebServer.pdb

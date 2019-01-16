@@ -1,0 +1,40 @@
+﻿<div>
+    <form class="form-inline" method="post" action="/orders/order">
+        <div class="form-group mb-2">
+            <label class="border-musaca text-musaca">Product</label>
+            <input type="text" class="form-control mx-sm-3" id="barcode" placeholder="Barcode..." name="barcode">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" id="quantity" placeholder="Quantity..." name="quantity">
+        </div>
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn bg-musaca text-white mb-2">Order</button>
+        </div>
+    </form>
+</div>
+<hr class="bg-musaca hr-2" />
+<div class="row">
+    <div class="col-sm-8"><h5>Product Name</h5></div>
+    <div class="col-sm-2 text-center"><h5>Quantity</h5></div>
+    <div class="col-sm-2 text-center"><h5>Price</h5></div>
+</div>
+<hr class="bg-musaca hr-2" />
+@foreach(var order in Model.AllOrders)
+{
+    <div class="row">
+        <div class="col-sm-8"><h5>@order.Name</h5></div>
+        <div class="col-sm-2 text-center"><h5>x@order.Quantity</h5></div>
+        <div class="col-sm-2 text-center"><h5>@order.Price</h5></div>
+    </div>
+}
+<hr class="bg-musaca hr-2" />
+<div class="row">
+    <div class="col-sm-10">
+            <form method="post" action="/Orders/Cashout">
+                <button type="submit" class="btn bg-musaca text-white">Cashout</button>
+            </form>
+    </div>
+    <div class="col-sm-2 text-right">
+            <h4>Total: $@Model.TotalSum</h4>
+    </div>
+</div>

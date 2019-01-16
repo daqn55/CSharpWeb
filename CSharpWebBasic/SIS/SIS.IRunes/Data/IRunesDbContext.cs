@@ -16,7 +16,8 @@ namespace SIS.IRunes.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("");
+            optionsBuilder.UseLazyLoadingProxies(true);
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-FU8DNRQ\SQLEXPRESS;Database=IRunes;Integrated Security=True;");
         }
     }
 }

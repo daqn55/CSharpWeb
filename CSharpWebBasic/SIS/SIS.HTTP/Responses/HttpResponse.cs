@@ -12,13 +12,12 @@ namespace SIS.HTTP.Responses
 {
     public class HttpResponse : IHttpResponse
     {
-        private readonly IHttpCookieCollection cookies;
 
         public HttpResponse(){}
 
         public HttpResponse(HttpResponseStatusCode statusCode)
         {
-            this.cookies = new HttpCookieCollection();
+            this.Cookies = new HttpCookieCollection();
             this.Headers = new HttpHeaderCollection();
             this.Content = new byte[0];
             this.StatusCode = statusCode;
@@ -29,6 +28,8 @@ namespace SIS.HTTP.Responses
         public IHttpHeaderCollection Headers { get; private set; }
 
         public byte[] Content { get; set; }
+
+        public IHttpCookieCollection Cookies { get; }
 
         public void AddHeader(HttpHeader header)
         {
@@ -42,7 +43,7 @@ namespace SIS.HTTP.Responses
 
         public void AddCookie(HttpCookie cookie)
         {
-            this.cookies.Add(cookie);
+            this.Cookies.Add(cookie);
         }
 
         public override string ToString()
@@ -52,12 +53,16 @@ namespace SIS.HTTP.Responses
             result
                 .Append($"{GlobalConstants.HttpOneProtocolFragment} {this.StatusCode.GetResponseLine()}")
                 .Append(Environment.NewLine)
-                .Append(this.Headers);
+                .Append(this.Headers)
+                .Append(Environment.NewLine);
 
-            if (this.cookies.HasCookies())
+            if (this.Cookies.HasCookies())
             {
-                result.Append($"Set-Cookie: {this.cookies}")
+                foreach (var httpCookie in this.Cookies)
+                {
+                    result.Append($"Set-Cookie: {httpCookie}")
                     .Append(Environment.NewLine);
+                }
             }
 
             result.Append(Environment.NewLine);

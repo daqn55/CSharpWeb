@@ -1,0 +1,15 @@
+﻿<hr />
+<img src="@Model.Image" alt="image" width="150" height="150">
+<p><strong>Name: @Model.Name</strong></p>
+<p><strong>Price: $@Model.Price</strong></p>
+<br />
+<p><strong>Tracks</strong></p>
+<hr />
+<a href="/Tracks/Create?albumId=@Model.AlbumId">Create Track</a>
+<hr />
+<ol>
+    @Model.AllTracks
+</ol>
+<hr />
+<a href="/Albums/All">Back To All</a>
+<hr />

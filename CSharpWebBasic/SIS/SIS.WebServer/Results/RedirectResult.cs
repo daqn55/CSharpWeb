@@ -1,4 +1,5 @@
 ﻿using SIS.HTTP.Enums;
+using SIS.HTTP.Headers;
 using SIS.HTTP.Responses;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace SIS.WebServer.Results
         public RedirectResult(string location)
             : base(HttpResponseStatusCode.SeeOther)
         {
-            this.Headers.Add(new HTTP.Headers.HttpHeader("Location", location));
+            this.Headers.Add(new HttpHeader("Location", location));
         }
     }
 }

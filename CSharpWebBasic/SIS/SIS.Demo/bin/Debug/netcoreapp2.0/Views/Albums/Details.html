@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>IRunes</h1>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/Albums/All">Albums</a></li>
+        <li><a href="/Logout">Logout</a></li>
+    </ul>
+    <hr />
+    <img src="@Model.Image" alt="image" width="150" height="150">
+    <p>Name: @Model.Name</p>
+    <p>Price: $@Model.Price</p>
+    <br />
+    <p>Tracks</p>
+    <hr />
+    <a href="/Tracks/Create">Create Track</a>
+    <hr />
+    @Model.AllTracks
+    <hr />
+    <a href="/Albums/All">Back To All</a>
+    <hr />
+    <footer>
+        <p><strong>CopyRight © Sanity Desing Studios. All rights reserved.</strong></p>
+    </footer>
+</body>
+</html>

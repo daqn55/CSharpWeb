@@ -1,0 +1,37 @@
+﻿<h1 class="text-center">Receipt Details</h1>
+<hr class="bg-musaca w-50 hr-2" />
+<div class="mx-auto w-50">
+    @foreach(var order in Model.AllOrders)
+    {
+        <div class="row">
+            <div class="col-sm-8 text-left"><h5>@order.Name</h5></div>
+            <div class="col-sm-2 text-right"><h5>x@order.Quantity</h5></div>
+            <div class="col-sm-2 text-right"><h5>$@order.Price</h5></div>
+        </div>
+    }
+</div>
+<hr class="bg-musaca w-50 hr-2" />
+<div class="mx-auto w-50">
+    <div class="row">
+        <div class="col-sm-10 text-left"><h5>Total</h5></div>
+        <div class="col-sm-2 text-right"><h5>$@Model.TotalSum</h5></div>
+    </div>
+</div>
+<hr class="bg-musaca w-50 hr-2" />
+<div class="mx-auto w-50">
+    <div class="row">
+        <div class="col-sm-10 text-left"><h5>Issued On</h5></div>
+        <div class="col-sm-2 text-right"><h5>@Model.IssuedOn</h5></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 text-left"><h5>Cashier</h5></div>
+        <div class="col-sm-2 text-right"><h5>@Model.CashierName</h5></div>
+    </div>
+</div>
+<hr class="bg-musaca w-50 hr-2" />
+<div class="mx-auto w-50">
+    <div class="row">
+        <div class="col-sm-10 text-left"><h5>Receipt</h5></div>
+        <div class="col-sm-2 text-right"><h5>@Model.ReceiptId</h5></div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿<h1 class="text-center text-torshia">Task Reports</h1>
+<hr class="hr-2 bg-torshia" />
+<table class="table w-75 mx-auto table-hover">
+    <thead>
+        <tr class="row">
+            <th class="col-md-1">#</th>
+            <th class="col-md-5">Task</th>
+            <th class="col-md-1">Level</th>
+            <th class="col-md-2">Status</th>
+            <th class="col-md-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {var count = 1;}
+        @foreach(var report in Model.AllReports)
+        {
+            <tr class="row">
+                <th class="col-md-1">@count</th>
+                <td class="col-md-5">@report.Title</td>
+                <td class="col-md-1">@report.Level</td>
+                <td class="col-md-2">@report.Status</td>
+                <td class="col-md-2">
+                    <div class="button-holder d-flex justify-content-between">
+                        <a class="btn bg-torshia text-white" href="/reports/details?id=@report.Id">Details</a>
+                    </div>
+                </td>
+            </tr>
+            {count++;}
+        }
+    </tbody>
+</table>

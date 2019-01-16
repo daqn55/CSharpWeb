@@ -1,0 +1,78 @@
+﻿<div>
+    <h1 class="row justify-content-center">Hello, @User.Username!</h1>
+    <hr class="bg-white hr-2" />
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-md-3 bg-mishmash text-center">
+                <h3>Pending</h3>
+                <div class="container border-panda">
+                    <div class="row justify-content-between">
+                        <table style="width:100%">
+                            @foreach(var p in Model.YourPending)
+                            {
+                                <tr>
+                                    <th>
+                                        <h5>@p.Name</h5>
+                                    </th>
+                                    <th>
+                                        <a href="/Packages/Details?id=@p.Id" class="btn btn-dark">Details</a>
+                                    </th>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 bg-mishmash text-center">
+                <h3>Shipped</h3>
+                <div class="container border-panda">
+                    <div class="row justify-content-between">
+                        <table style="width:100%">
+                            @foreach(var p in Model.YourShipped)
+                            {
+                                <tr>
+                                    <th>
+                                        <h5>@p.Name</h5>
+                                    </th>
+                                    <th>
+                                        <a href="/Packages/Details?id=@p.Id" class="btn btn-dark">Details</a>
+                                    </th>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 bg-mishmash text-center">
+                <h3>Delivered</h3>
+                <div class="container border-panda">
+                    <div class="row justify-content-between">
+                        <table style="width:100%">
+                            @foreach(var p in Model.YourDelivered)
+                            {
+                                <tr>
+                                    <th>
+                                        <h5>@p.Name</h5>
+                                    </th>
+                                    <th>
+                                        @if(p.Status == "Acquired")
+                                        {
+                                            <a href="/Packages/Details?id=@p.Id" class="btn btn-dark">Details</a>
+                                        }
+                                        @else
+                                        {
+                                             <form method="post" action="/Packages/Acquire">
+                                                   <input type="hidden" class="form-control" id="Id" name="Id" value="@p.Id">
+                                                   <button type="submit" class="btn bg-panda text-white">Acquire</button>
+                                             </form>
+                                        }
+                                    </th>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

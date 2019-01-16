@@ -15,5 +15,8 @@ namespace SIS.IRunes.Models
         public string Link { get; set; }
 
         public decimal Price { get; set; }
+
+        public Guid AlbumId { get; set; }
+        public virtual Album Album { get; set; }
     }
 }

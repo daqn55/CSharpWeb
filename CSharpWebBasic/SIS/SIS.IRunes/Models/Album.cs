@@ -9,6 +9,11 @@ namespace SIS.IRunes.Models
 {
     public class Album
     {
+        public Album()
+        {
+            this.Tracks = new HashSet<Track>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }

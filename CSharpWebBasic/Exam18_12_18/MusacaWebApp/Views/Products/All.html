@@ -1,0 +1,38 @@
+﻿<div class="products">
+    {var count = 0;}
+    @foreach(var product in Model.AllProducts)
+    {
+        @if(count % 3 == 0)
+        {
+            @if(count > 0)
+            {
+                </div>
+            }
+            <div class="product-row d-flex justify-content-between mt-4">
+        }
+            <div class="product d-flex justify-content-between w-25">
+                <div class="image-holder w-25">
+                    <img src="@product.Picture" alt="..." class="img-thumbnail">
+                </div>
+                <div class="data-holder w-75 px-3 mt-2">
+                    <div class="text-holder d-flex justify-content-between">
+                        <h6>Name:</h6>
+                        <h6>@product.Name</h6>
+                    </div>
+                    <div class="text-holder d-flex justify-content-between">
+                        <h6>Price:</h6>
+                        <h6>$@product.Price</h6>
+                    </div>
+                    <div class="text-holder d-flex justify-content-between">
+                        <h6>Barcode:</h6>
+                        <h6>@product.Barcode</h6>
+                    </div>
+                </div>
+            </div>
+                @if(count + 1 == Model.AllProducts.Count())
+            {
+                </div>
+            }
+        {count++;}
+    }
+</div>

@@ -1,0 +1,25 @@
+﻿<h1 class="text-center text-musaca">Greeting, @User.Username!</h1>
+<hr class="bg-musaca hr-2" />
+<table class="table table-bordered text-center border-musaca">
+    <thead>
+        <tr class="row text-musaca">
+            <th class="col-sm-5"><h5>Id</h5></th>
+            <th class="col-sm-2"><h5>Total</h5></th>
+            <th class="col-sm-2"><h5>Issued On</h5></th>
+            <th class="col-sm-2"><h5>Cashier</h5></th>
+            <th class="col-sm-1"><h5>Action</h5></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var receipt in Model.AllReceipts)
+        {
+        <tr class="row font-weight-bold">
+            <td class="col-sm-5">@receipt.Id</td>
+            <td class="col-sm-2 text-center">$@receipt.TotalSum</td>
+            <td class="col-sm-2 text-center">@receipt.IssuedOn</td>
+            <td class="col-sm-2 text-center">@receipt.CashierName</td>
+            <td class="col-sm-1 text-center"><a href="/receipts/details?id=@receipt.Id" class="btn bg-musaca text-white">Details</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

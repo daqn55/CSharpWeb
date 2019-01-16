@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SIS.HTTP.Common;
 using SIS.HTTP.Cookies;
 using SIS.HTTP.Enums;
 using SIS.HTTP.Exceptions;
@@ -12,6 +13,19 @@ namespace SIS.HTTP.Requests
 {
     public class HttpRequest : IHttpRequest
     {
+        private const char HttpRequestUrlQuerySeparator = '?';
+
+        private const char HttpRequestUrlFragmentSeparator = '#';
+
+        private const string HttpRequestHeaderNameValueSeparator = ": ";
+
+        private const string HttpRequestCookiesSeparator = "; ";
+
+        private const char HttpRequestCookieNameValueSeparator = '=';
+
+        private const char HttpRequestParameterSeparator = '&';
+
+        private const char HttpRequestParameterNameValueSeparator = '=';
 
         public HttpRequest(string requestString)
         {
@@ -95,19 +109,18 @@ namespace SIS.HTTP.Requests
 
         private void ParseHeaders(string[] requestContent)
         {
-            for (int i = 0; i < requestContent.Length; i++)
-            {
-                var content = requestContent[i].Split(": ", StringSplitOptions.RemoveEmptyEntries);
+            int currentIndex = 0;
 
-                if (content.Length == 0)
+            while (requestContent.Length > currentIndex)
+            {
+                string[] headerArguments = requestContent[currentIndex++].Split(HttpRequestHeaderNameValueSeparator);
+                if (headerArguments.Length > 1)
                 {
-                    break;
+                    this.Headers.Add(new HttpHeader(headerArguments[0], headerArguments[1]));
                 }
-                var header = new HttpHeader(content[0], content[1]);
-                this.Headers.Add(header);
             }
 
-            if (!this.Headers.ContainsHeader("Host"))
+            if (!this.Headers.ContainsHeader(GlobalConstants.HostHeaderKey))
             {
                 throw new BadRequestException();
             }
@@ -176,18 +189,24 @@ namespace SIS.HTTP.Requests
 
         private void ParseCookies()
         {
-            var checkForCookie = this.Headers.ContainsHeader("Cookie");
+            if (!this.Headers.ContainsHeader("Cookie")) return;
 
-            if (checkForCookie)
+            string cookiesString = this.Headers.GetHeader("Cookie").Value;
+
+            if (string.IsNullOrEmpty(cookiesString)) return;
+
+            string[] splitCookies = cookiesString.Split(HttpRequestCookiesSeparator);
+
+            foreach (var splitCookie in splitCookies)
             {
-                var cookies = this.Headers.GetHeader("Cookie").Value.Split("; ", StringSplitOptions.RemoveEmptyEntries);
+                string[] cookieParts = splitCookie.Split(HttpRequestCookieNameValueSeparator, 2, StringSplitOptions.RemoveEmptyEntries);
 
-                foreach (var cookie in cookies)
-                {
-                    var splitedCookie = cookie.Split('=');
+                if (cookieParts.Length != 2) continue;
 
-                    this.Cookies.Add(new HttpCookie(splitedCookie[0], splitedCookie[1]));
-                }
+                string key = cookieParts[0];
+                string value = cookieParts[1];
+
+                this.Cookies.Add(new HttpCookie(key, value, false));
             }
         }
 

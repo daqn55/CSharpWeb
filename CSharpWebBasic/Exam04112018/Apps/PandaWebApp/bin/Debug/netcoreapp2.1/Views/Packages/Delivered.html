@@ -1,0 +1,39 @@
+﻿<h1 class="text-center text-panda">Pending Shipment</h1>
+<hr class="bg-panda hr-2" />
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr class="row">
+                    <th class="col-sm-1"><h5>#</h5></th>
+                    <th class="col-sm-3"><h5>Description</h5></th>
+                    <th class="col-sm-1"><h5>Weight</h5></th>
+                    <th class="col-sm-3"><h5>Shipping Address</h5></th>
+                    <th class="col-sm-3"><h5>Recipient</h5></th>
+                    <th class="col-sm-1"><h5>Actions</h5></th>
+                </tr>
+            </thead>
+            <tbody>
+                {var count = 0;}
+                @foreach(var p in Model.AllDelivered)
+                {
+                    {count++;}
+                    <tr class="row">
+                        <td class="col-sm-1">@count</td>
+                        <td class="col-sm-3">@p.Description</td>
+                        <td class="col-sm-1">@p.Weight KG</td>
+                        <td class="col-sm-3">@p.ShippingAddress</td>
+                        <td class="col-sm-3">@p.Recepient</td>
+                        <td class="col-sm-1"><form method="post" action="/Packages/Delivered">
+                                                   <input type="hidden" class="form-control" id="Id" name="Id" value="@p.Id">
+                                                   <button type="submit" class="btn bg-panda text-white">Details</button>
+                                             </form></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

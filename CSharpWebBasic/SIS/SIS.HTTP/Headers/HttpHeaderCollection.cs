@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIS.HTTP.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -36,6 +37,11 @@ namespace SIS.HTTP.Headers
             }
 
             return null;
+        }
+
+        public override string ToString()
+        {
+            return string.Join(GlobalConstants.HttpNewLine, this.headers.Values);
         }
     }
 }

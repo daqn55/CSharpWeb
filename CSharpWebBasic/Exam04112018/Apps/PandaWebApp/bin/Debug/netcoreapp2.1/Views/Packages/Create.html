@@ -1,0 +1,29 @@
+﻿<h1 class="text-center text-torshia">Create Package</h1>
+<hr class="bg-panda w-50 hr-2" />
+<form class="mx-auto w-50" method="post" action="/Packages/Create">
+    <div class="form-group">
+        <label for="Description" class="text-torshia">Description</label>
+        <input type="text" class="form-control" id="Description" placeholder="Description..." name="Description">
+    </div>
+    <div class="form-group">
+        <label for="Weight" class="text-torshia">Weight</label>
+        <input type="text" class="form-control" id="Weight" placeholder="Weight..." name="Weight">
+    </div>
+    <div class="form-group">
+        <label for="ShippingAddress" class="text-torshia">Shipping Address</label>
+        <input type="text" class="form-control" id="ShippingAddress" placeholder="Shipping Address..." name="ShippingAddress">
+    </div>
+    <hr class="bg-panda w-100 hr-2" />
+    <label for="Recipient" class="text-torshia">Recipient</label>
+    <select name="Recepient">
+        <option selected="true" disabled="disabled">-- Choose Recipient --</option>
+        @foreach(var p in Model.AllUsers)
+        {
+            <option value="@p.Username">@p.Username</option>
+        }
+    </select>
+    <hr class="bg-panda w-100 hr-2" />
+    <div class="button-holder d-flex justify-content-center">
+        <button type="submit" class="btn bg-panda text-white">Create</button>
+    </div>
+</form>
